@@ -1,0 +1,69 @@
+/* Customização do DateRangePicker */
+.rdrCalendarWrapper {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.rdrDefinedRangesWrapper {
+  display: none !important;
+}
+
+.rdrMonths {
+  width: 100% !important;
+}
+
+.rdrMonth {
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+.rdrMonthAndYearWrapper {
+  padding: 10px !important;
+  height: auto !important;
+}
+
+.rdrMonthPicker select,
+.rdrYearPicker select {
+  padding: 5px 25px 5px 10px !important;
+  font-size: 14px !important;
+}
+
+.rdrWeekDays {
+  padding: 0 10px !important;
+}
+
+.rdrDays {
+  padding: 0 10px 10px 10px !important;
+}
+
+.rdrDay {
+  height: 2.5rem !important;
+}
+
+.rdrDayNumber {
+  font-weight: 400 !important;
+}
+
+.rdrDayToday .rdrDayNumber span:after {
+  background: #2563eb !important;
+}
+
+.rdrSelected,
+.rdrInRange,
+.rdrStartEdge,
+.rdrEndEdge {
+  background: #2563eb !important;
+}
+
+.rdrDayStartPreview,
+.rdrDayInPreview,
+.rdrDayEndPreview {
+  border-color: #2563eb !important;
+}
+
+/* Ajustes para melhor responsividade */
+@media (max-width: 640px) {
+  .rdrDay {
+    height: 2rem !important;
+  }
+}

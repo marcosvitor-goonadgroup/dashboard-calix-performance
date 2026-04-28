@@ -1,0 +1,42 @@
+{
+  "name": "dashboard-calix-performance",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:vercel": "vercel dev",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Dashboard para campanhas de mídia online",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/react": "^19.2.7",
+    "@types/react-date-range": "^1.4.10",
+    "@types/react-dom": "^19.2.3",
+    "@vercel/node": "^5.5.15",
+    "@vitejs/plugin-react": "^5.1.1",
+    "autoprefixer": "^10.4.22",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3",
+    "vercel": "^49.1.2",
+    "vite": "^7.2.6"
+  },
+  "dependencies": {
+    "@vercel/kv": "^3.0.0",
+    "axios": "^1.13.2",
+    "date-fns": "^4.1.0",
+    "ioredis": "^5.8.2",
+    "react": "^19.2.0",
+    "react-date-range": "^2.0.1",
+    "react-dom": "^19.2.0",
+    "react-tsparticles": "^2.12.2",
+    "recharts": "^3.5.1",
+    "tsparticles": "^3.9.1",
+    "tsparticles-slim": "^2.12.0"
+  }
+}

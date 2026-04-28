@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc:*)",
+      "Bash(npm run build:*)",
+      "WebFetch(domain:nmbcoamazonia-api.vercel.app)",
+      "Bash(identify \"c:/Users/marco/OneDrive/Desktop/GOON/AdDesk/ArtPlan/src/images/Logo-SENAI.png\")",
+      "Bash(grep -r \"VITE_GEMINI_API\\\\|GEMINI_API\" C:UsersmarcoOneDriveDesktopGOONAdDeskdashboard-indrive --include=*.ts --include=*.tsx --include=*.env* -l)"
+    ]
+  }
+}
