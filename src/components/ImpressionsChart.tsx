@@ -101,7 +101,7 @@ const ImpressionsChart = ({
       }));
   };
 
-  const chartData = useMemo(() => {
+  const chartData: object[] = useMemo(() => {
     const currentPeriodData = periodFilter === '7days'
       ? data.filter(item => item.date >= sevenDaysAgo && item.date <= yesterday)
       : data.filter(item => item.date <= yesterday);
@@ -235,18 +235,19 @@ const ImpressionsChart = ({
     return `${value.toFixed(1)}%`;
   };
 
-  const formatTooltip = (value: number | undefined, name: string | undefined) => {
-    if (value === undefined || name === undefined) return '';
+  const formatTooltip = (value: unknown, name: unknown) => {
+    const v = typeof value === 'number' ? value : undefined;
+    const n = typeof name === 'string' ? name : undefined;
+    if (v === undefined || n === undefined) return '';
 
-    // Extrai o nome da métrica removendo o sufixo "_anterior" se existir
-    const metricName = name.replace(' (Período Anterior)', '');
+    const metricName = n.replace(' (Período Anterior)', '');
     const metric = metricOptions.find(m => m.label === metricName);
 
     if (metric?.type === 'percentage') {
-      return `${value.toFixed(2)}%`;
+      return `${v.toFixed(2)}%`;
     }
 
-    return new Intl.NumberFormat('pt-BR').format(value);
+    return new Intl.NumberFormat('pt-BR').format(v);
   };
 
   const chartTitle = selectedMetrics.length === 1

@@ -381,7 +381,7 @@ const CreativeDetailModal = ({ creativeName, data, benchmark, onClose }: Creativ
                         stroke="#6b7280"
                       />
                       <Tooltip
-                        formatter={(value: number | undefined) => [value !== undefined ? formatNumber(value) : '', 'Visualizações']}
+                        formatter={(value: unknown) => { const v = typeof value === 'number' ? value : undefined; return [v !== undefined ? formatNumber(v) : '', 'Visualizações']; }}
                         contentStyle={{
                           backgroundColor: 'white',
                           border: '1px solid #e5e7eb',
@@ -436,7 +436,7 @@ const CreativeDetailModal = ({ creativeName, data, benchmark, onClose }: Creativ
                       stroke="#6b7280"
                     />
                     <Tooltip
-                      formatter={(value: number | undefined) => [value !== undefined ? formatNumber(value) : '', selectedMetric.charAt(0).toUpperCase() + selectedMetric.slice(1)]}
+                      formatter={(value: unknown) => { const v = typeof value === 'number' ? value : undefined; return [v !== undefined ? formatNumber(v) : '', selectedMetric.charAt(0).toUpperCase() + selectedMetric.slice(1)]; }}
                       contentStyle={{
                         backgroundColor: 'white',
                         border: '1px solid #e5e7eb',
