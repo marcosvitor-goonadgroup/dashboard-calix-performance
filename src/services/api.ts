@@ -9,7 +9,8 @@ const API_BASE = import.meta.env.DEV ? '/api-proxy' : 'https://nmbcoamazonia-api
 // [11]Video views 75% [12]Video completions [13]Total engagements [14]Veículo
 // [15]Tipo de Compra [16]video_estatico_audio [17]Campanha [18]Número PI
 const CAMPAIGN_API_URLS = [
-  `${API_BASE}/google/sheets/1iF0N74Bd9s3pBnnzgiRRXE7KmxsFmTFXhK9UyM-ppDw/data?range=Consolidado`
+  `${API_BASE}/google/sheets/1iF0N74Bd9s3pBnnzgiRRXE7KmxsFmTFXhK9UyM-ppDw/data?range=Consolidado`,
+  `${API_BASE}/google/sheets/1abcar-ESRB_f8ytKGQ_ru_slZ67cXhjxKt8gL7TrEVw/data?range=Consolidado`
 ];
 
 const PI_INFO_API_URL = `${API_BASE}/google/sheets/1T35Pzw9ZA5NOTLHsTqMGZL5IEedpSGdZHJ2ElrqLs1M/data`;

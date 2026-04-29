@@ -7,6 +7,8 @@ import ComparisonToggle from '../components/ComparisonToggle';
 import PIInfoCard from '../components/PIInfoCard';
 import ClientCampaignList from '../components/ClientCampaignList';
 import CreativePerformance from '../components/CreativePerformance';
+import AIAnalysis from '../components/AIAnalysis';
+import OnDemandAnalysis from '../components/OnDemandAnalysis';
 import ParticlesBackground from '../components/ParticlesBackground';
 import Footer from '../components/Footer';
 import adDeskWhite from '../images/ad-desk-white.svg';
@@ -298,6 +300,19 @@ const CampaignDashboardContent = ({ clientSlug, campaignSlug }: CampaignDashboar
               selectedVehicle={selectedVehicle}
               onSelectVehicle={setSelectedVehicle}
               selectedPI={selectedPI}
+            />
+
+            <AIAnalysis
+              data={displayData}
+              allData={campaignData}
+              periodFilter={periodFilter}
+              selectedCampaign={campaignName}
+            />
+
+            <OnDemandAnalysis
+              data={displayData}
+              allData={campaignData}
+              periodFilter={periodFilter}
             />
 
             <CreativePerformance data={displayData} />

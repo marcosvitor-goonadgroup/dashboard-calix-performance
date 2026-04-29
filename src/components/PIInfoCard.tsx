@@ -104,19 +104,27 @@ const PIInfoCard = ({ numeroPi, campaignData = [], defaultExpanded = false }: PI
       const tipoKey = piData.tipoDeCompra.toUpperCase();
       const veiculoKey = normalizeVehicleName(piData.veiculo);
 
+      // 1. Tenta match exato veículo + tipo
       let match = realizadoGrouped.get(`${veiculoKey}|${tipoKey}`);
       let matchedByVehicle = !!match;
 
+      // 2. Match exato falhou — agrega TODOS os realizados com o mesmo tipo de compra
       if (!match) {
+        let realizado = 0, cliques = 0, impressoes = 0;
         for (const [k, v] of realizadoGrouped.entries()) {
           if (k.endsWith(`|${tipoKey}`)) {
-            match = v;
-            break;
+            realizado += v.realizado;
+            cliques += v.cliques;
+            impressoes += v.impressoes;
           }
+        }
+        if (realizado > 0 || impressoes > 0) {
+          match = { realizado, cliques, impressoes };
         }
       }
 
-      if (!match && piGrouped.size === 1) {
+      // 3. Último recurso: usa totais gerais (PI com único tipo de veiculação)
+      if (!match) {
         match = { realizado: totaisRealizados.realizado, cliques: totaisRealizados.cliques, impressoes: totaisRealizados.impressoes };
       }
 
@@ -124,10 +132,10 @@ const PIInfoCard = ({ numeroPi, campaignData = [], defaultExpanded = false }: PI
         veiculo: piData.veiculo,
         tipoDeCompra: piData.tipoDeCompra,
         previsto: piData.previsto,
-        realizado: match?.realizado ?? 0,
+        realizado: match.realizado,
         quantidade: piData.quantidade,
-        impressoesRealizadas: match?.impressoes ?? 0,
-        cliquesRealizados: match?.cliques ?? 0,
+        impressoesRealizadas: match.impressoes,
+        cliquesRealizados: match.cliques,
         matchedByVehicle,
       });
     });

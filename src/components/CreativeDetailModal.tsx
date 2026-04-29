@@ -25,13 +25,7 @@ type ComparisonMode = 'benchmark' | 'previous-period' | 'self-previous';
 type TimelineMetric = 'impressoes' | 'cliques' | 'views' | 'engajamento' | 'alcance';
 
 const formatNumber = (num: number): string => {
-  if (num >= 1000000) {
-    return `${(num / 1000000).toFixed(2)} mi`;
-  }
-  if (num >= 1000) {
-    return `${(num / 1000).toFixed(1)} mil`;
-  }
-  return num.toFixed(0);
+  return new Intl.NumberFormat('pt-BR').format(Math.round(num));
 };
 
 const formatTipoMidia = (tipoMidia: string): string => {

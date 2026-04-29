@@ -222,13 +222,7 @@ const ImpressionsChart = ({
   });
 
   const formatYAxisCount = (value: number) => {
-    if (value >= 1000000) {
-      return `${(value / 1000000).toFixed(1)} mi`;
-    }
-    if (value >= 1000) {
-      return `${(value / 1000).toFixed(0)} mil`;
-    }
-    return value.toString();
+    return new Intl.NumberFormat('pt-BR').format(Math.round(value));
   };
 
   const formatYAxisPercentage = (value: number) => {

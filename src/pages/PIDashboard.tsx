@@ -6,6 +6,8 @@ import VehicleMetrics from '../components/VehicleMetrics';
 import ComparisonToggle from '../components/ComparisonToggle';
 import PIInfoCard from '../components/PIInfoCard';
 import CreativePerformance from '../components/CreativePerformance';
+import AIAnalysis from '../components/AIAnalysis';
+import OnDemandAnalysis from '../components/OnDemandAnalysis';
 import ParticlesBackground from '../components/ParticlesBackground';
 import Footer from '../components/Footer';
 import adDeskWhite from '../images/ad-desk-white.svg';
@@ -291,6 +293,19 @@ const PIDashboardContent = ({ clientSlug, campaignSlug, piSlug }: PIDashboardPro
               selectedVehicle={selectedVehicle}
               onSelectVehicle={setSelectedVehicle}
               selectedPI={piSlug}
+            />
+
+            <AIAnalysis
+              data={displayData}
+              allData={piData}
+              periodFilter={periodFilter}
+              selectedCampaign={`${campaignName} — PI ${piSlug}`}
+            />
+
+            <OnDemandAnalysis
+              data={displayData}
+              allData={piData}
+              periodFilter={periodFilter}
             />
 
             <CreativePerformance data={displayData} />
